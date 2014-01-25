@@ -38,4 +38,23 @@ class ZousyoTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($this->zousyo->getBooks(), [$book]);
     }
+
+    /**
+     * @test
+     */
+    public function 登録日の降順の一覧を取得()
+    {
+
+        $book1 = new Book();
+        $book1->setRegisteredAt(new \DateTime('2014-1-1'));
+        $book2 = new Book();
+        $book2->setRegisteredAt(new \DateTime('2014-1-2'));
+        $book3 = new Book();
+        $book3->setRegisteredAt(new \DateTime('2014-1-3'));
+
+        $this->zousyo->setBooks([$book1, $book2, $book3]);
+
+
+        $this->assertEquals([$book3, $book2, $book1], $this->zousyo->getListSortedByRegisteredDate());
+    }
 }

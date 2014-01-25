@@ -26,8 +26,30 @@ class Zousyo
         return $this->books;
     }
 
+    /**
+     * @param array $books
+     */
+    public function setBooks($books)
+    {
+        $this->books = $books;
+    }
+
+
     public function register(Book $book)
     {
+        $book->setRegisteredAt(new \DateTime());
         $this->books[] = $book;
+    }
+
+    public function getListSortedByRegisteredDate()
+    {
+        // 降順
+        usort($this->books, function ($a, $b) {
+            /** @var $a Book */
+            /** @var $b Book */
+            return $b->getRegisteredAt()->getTimestamp() - $a->getRegisteredAt()->getTimestamp();
+        });
+
+        return $this->books;
     }
 }

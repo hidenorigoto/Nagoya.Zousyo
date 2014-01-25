@@ -10,8 +10,20 @@ namespace Nagoya\Zousyo;
 
 
 class Book {
+    /**
+     * @var string
+     */
     private $isbn;
+
+    /**
+     * @var string
+     */
     private $title;
+
+    /**
+     * @var \DateTime
+     */
+    private $registeredAt;
 
     /**
      * @var array
@@ -62,4 +74,22 @@ class Book {
     {
         return $this->kansouList;
     }
+
+    /**
+     * @param \DateTime $registedAt
+     */
+    public function setRegisteredAt($registedAt)
+    {
+        $this->registeredAt = $registedAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getRegisteredAt()
+    {
+        return $this->registeredAt;
+    }
+
+
 }
