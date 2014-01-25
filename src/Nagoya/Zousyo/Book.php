@@ -14,6 +14,11 @@ class Book {
     private $title;
 
     /**
+     * @var array
+     */
+    private $kansouList = [];
+
+    /**
      * @param mixed $isbn
      */
     public function setIsbn($isbn)
@@ -45,4 +50,16 @@ class Book {
         return $this->title;
     }
 
+    public function addKansou(Kansou $kansou)
+    {
+        $this->kansouList[] = $kansou;
+    }
+
+    /**
+     * @return array
+     */
+    public function getKansouList()
+    {
+        return $this->kansouList;
+    }
 }

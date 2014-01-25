@@ -14,9 +14,15 @@ class BookTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function testhoge()
+    public function 感想を追加する()
     {
-        $this->assertInstanceOf(Book::class, new Book());
+        $kansou = new Kansou();
+
+        $book = new Book();
+
+        $book->addKansou($kansou);
+
+        $this->assertEquals([$kansou], $book->getKansouList());
     }
 }
  
