@@ -1,0 +1,17 @@
+{
+    "name": "nagoya/zousyo",
+    "description":" ",
+    "keywords":[
+    ],
+    "config":{
+        "bin-dir": "bin"
+    },
+    "require":{
+        "phpunit/phpunit": "3.7"
+    },
+    "autoload":{
+        "psr-0":{
+            "Nagoya\\Zousyo": "src/"
+        }
+    }
+}
