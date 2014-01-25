@@ -30,6 +30,9 @@ class Book {
      */
     private $kansouList = [];
 
+    private $quoteList = [];
+
+
     /**
      * @param mixed $isbn
      */
@@ -67,6 +70,11 @@ class Book {
         $this->kansouList[] = $kansou;
     }
 
+    public function addQuote(Quote $quote)
+    {
+        $this->quoteList[] = $quote;
+    }
+
     /**
      * @return array
      */
@@ -91,5 +99,19 @@ class Book {
         return $this->registeredAt;
     }
 
+    /**
+     * @param array $quoteList
+     */
+    public function setQuoteList($quoteList)
+    {
+        $this->quoteList = $quoteList;
+    }
 
+    /**
+     * @return array
+     */
+    public function getQuoteList()
+    {
+        return $this->quoteList;
+    }
 }

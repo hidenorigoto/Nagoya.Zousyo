@@ -24,5 +24,18 @@ class BookTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals([$kansou], $book->getKansouList());
     }
+
+    /**
+     * @test
+     */
+    public function 引用を追加する()
+    {
+        $quote = new Quote();
+
+        $book = new Book();
+
+        $book->addQuote($quote);
+
+        $this->assertEquals([$quote], $book->getQuoteList());
+    }
 }
- 

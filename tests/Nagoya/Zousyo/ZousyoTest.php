@@ -33,8 +33,15 @@ class ZousyoTest extends \PHPUnit_Framework_TestCase
      */
     public function 登録する()
     {
-        $book = new Book();
+        $book = $this->getMock(Book::class);
+
+        $book->expects($this->once())
+            ->method('setRegisteredAt')
+            ->with($this->isInstanceOf('\DateTime'));
+
         $this->zousyo->register($book);
+
+
 
         $this->assertEquals($this->zousyo->getBooks(), [$book]);
     }
